@@ -6,6 +6,10 @@ module "biu_gemini_vpc" {
   subnet_name  = var.biu_gemini_subnet_name
   region       = var.vpc_region
   subnet_cidr  = var.biu_gemini_subnet_cidr
+
+  depends_on = [
+    module.network_hub_services
+  ]
 }
 
 module "biu_ai_vpc" {
@@ -16,6 +20,10 @@ module "biu_ai_vpc" {
   subnet_name  = var.biu_ai_subnet_name
   region       = var.vpc_region
   subnet_cidr  = var.biu_ai_subnet_cidr
+
+  depends_on = [
+    module.network_hub_services
+  ]
 }
 
 module "tech_prod_vpc" {
@@ -26,6 +34,10 @@ module "tech_prod_vpc" {
   subnet_name  = var.tech_prod_subnet_name
   region       = var.vpc_region
   subnet_cidr  = var.tech_prod_subnet_cidr
+
+  depends_on = [
+    module.network_hub_services
+  ]
 }
 
 module "lnd_mumbai_vpc" {
@@ -36,4 +48,8 @@ module "lnd_mumbai_vpc" {
   subnet_name  = var.lnd_mumbai_subnet_name
   region       = var.vpc_region
   subnet_cidr  = var.lnd_mumbai_subnet_cidr
+
+  depends_on = [
+    module.network_hub_services
+  ]
 }
